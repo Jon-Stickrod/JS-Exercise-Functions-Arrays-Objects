@@ -79,8 +79,17 @@ function getName(personObject) {
  *         and returns a string like `Hello, my name is {name}`.
  *         where `{name}` is the name passed into `makeSmartPerson`.
 */
-function makeSmartPerson(/* code here */) {
-  /* code here */
+function makeSmartPerson(name) {
+  var obj = {
+    name: name,
+    sum: function(n1, n2) {
+      return n1+n2;
+    },
+    speak: function() {
+      return `hello my name is ${name}`;
+    }
+  };
+  return obj;
 }
 
 
