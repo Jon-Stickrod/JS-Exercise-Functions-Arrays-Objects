@@ -151,7 +151,8 @@ function get3rdCar(inventory) {
  * it will return `This is a Lincoln Navigator`.
 */
 function getCarInfoByIndex(inventory, index) {
-  /* code here */
+ 
+  return `The car is a ${inventory[index].car_make} ${inventory[index].car_model}`;
 }
 
 /**
@@ -165,8 +166,9 @@ function getCarInfoByIndex(inventory, index) {
  * For example, if getLastCarInfo is invoked passing the inventory inside /data/inventory.js,
  * it will return `This is a Lincoln Town Car`.
 */
-function getLastCarInfo(/* code here */) {
-  /* code here */
+function getLastCarInfo(inventory) {
+  var last = inventory[inventory.length - 1];
+  return `This is a ${last.car_make} ${last.car_model}`;
 }
 
 /**
@@ -181,8 +183,8 @@ function getLastCarInfo(/* code here */) {
  * For example, if getCarInfoById is invoked with the inventory and the number 1,
  * it will return `This is a Lincoln Navigator`.
 */
-function getCarInfoById(/* code here */) {
-  /* code here */
+function getCarInfoById(inventory, id) {
+  return `This is a ${inventory[id -1].car_make} ${inventory[id -1].car_model}`;
 }
 
 /**
@@ -193,8 +195,14 @@ function getCarInfoById(/* code here */) {
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * sortCarInventory returns an inventory that is sorted by car_model, ascending [A-Z].
 */
-function sortCarInventory(/* code here */) {
-  /* code here */
+function sortCarInventory(inventory) {
+  return inventory.sort(function(car1, car2) {
+    if (car1.car_model > car2.car_model) {
+      return 1;
+    } else {
+      return -1;
+    }
+  });
 }
 
 /**
@@ -206,8 +214,12 @@ function sortCarInventory(/* code here */) {
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * getModelYears returns an array containing all the 'car_year's in the inventory.
 */
-function getModelYears(/* code here */) {
-  /* code here */
+function getModelYears(inventory) {
+  const years = [];
+  for (let i = 0; i < inventory.length; i++){
+    years.push(inventory[i].car_year)
+  };
+  return years;
 }
 
 /**
